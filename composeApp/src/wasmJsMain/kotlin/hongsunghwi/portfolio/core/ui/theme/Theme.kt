@@ -89,7 +89,7 @@ fun PortfolioTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = PretendardTypography(),
+        typography = pretendardTypography,
         content = content
     )
 }
@@ -100,5 +100,5 @@ object PortfolioTheme {
         get() = MaterialTheme.colorScheme
     val typography: Typography
         @Composable
-        get() = PretendardTypography()
+        get() = pretendardTypography
 }

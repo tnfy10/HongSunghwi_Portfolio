@@ -1,4 +1,0 @@
-import kotlinx.serialization.Serializable
-
-@Serializable
-object ExperiencesRoute
