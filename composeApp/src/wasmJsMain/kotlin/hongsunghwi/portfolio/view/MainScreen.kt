@@ -1,12 +1,11 @@
 package hongsunghwi.portfolio.view
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.onClick
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -16,6 +15,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.Constant
+import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 import hongsunghwi.portfolio.view.Container.*
 import hongsunghwi_portfolio.composeapp.generated.resources.Res
 import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_24
@@ -23,49 +23,58 @@ import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_open_24
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     var screenWidth by remember { mutableStateOf(Dp.Unspecified) }
     val isSmallScreen by remember(screenWidth) {
-        mutableStateOf(screenWidth >= Constant.BASE_SCREEN_WIDTH)
+        mutableStateOf(screenWidth < Constant.BASE_SCREEN_WIDTH)
     }
     val listState = rememberLazyListState()
 
+    LaunchedEffect(isSmallScreen) {
+        if (!isSmallScreen) {
+            drawerState.close()
+        }
+    }
+
     ModalNavigationDrawer(
         drawerContent = {
-            ModalDrawerSheet {
-                TopAppBar(
-                    title = {
-                        Text(
-                            text = "Menu"
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(
+            ModalDrawerSheet(
+                drawerContainerColor = PortfolioTheme.colors.surface
+            ) {
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 12.dp, vertical = 6.dp)
+                        .size(48.dp)
+                        .clickable(
+                            indication = ripple(radius = (48 / 2).dp),
+                            interactionSource = remember { MutableInteractionSource() },
                             onClick = {
                                 scope.launch {
                                     drawerState.close()
                                 }
                             }
-                        ) {
-                            Icon(
-                                painter = painterResource(Res.drawable.ic_menu_open_24),
-                                contentDescription = null
-                            )
-                        }
-                    }
-                )
+                        ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        painter = painterResource(Res.drawable.ic_menu_open_24),
+                        contentDescription = "메뉴 닫기"
+                    )
+                }
                 Container.entries.forEachIndexed { index, container ->
-                    ListItem(
-                        headlineContent = {
+                    NavigationDrawerItem(
+                        label = {
                             Text(
-                                text = container.label
+                                text = container.label,
+                                style = PortfolioTheme.typography.labelLarge
                             )
                         },
-                        modifier = Modifier.clickable {
+                        selected = index == listState.firstVisibleItemIndex,
+                        onClick = {
                             scope.launch {
                                 launch {
                                     listState.animateScrollToItem(index)
@@ -75,7 +84,8 @@ fun MainScreen() {
                                 }
                             }
                         },
-                        leadingContent = {
+                        modifier = Modifier.padding(horizontal = 8.dp),
+                        icon = {
                             Icon(
                                 painter = painterResource(container.icon),
                                 contentDescription = container.label
@@ -86,22 +96,16 @@ fun MainScreen() {
             }
         },
         drawerState = drawerState,
-        gesturesEnabled = false
+        gesturesEnabled = isSmallScreen
     ) {
         val density = LocalDensity.current
 
         Scaffold(
-            modifier = Modifier.onClick {
-                if (drawerState.isOpen) {
-                    scope.launch {
-                        drawerState.close()
-                    }
-                }
-            }.onSizeChanged {
+            modifier = Modifier.onSizeChanged {
                 screenWidth = with(density) { it.width.toDp() }
             },
             topBar = {
-                if (!isSmallScreen) {
+                if (isSmallScreen) {
                     TopAppBar(
                         title = {
                             Text(
@@ -118,7 +122,7 @@ fun MainScreen() {
                             ) {
                                 Icon(
                                     painter = painterResource(Res.drawable.ic_menu_24),
-                                    contentDescription = null
+                                    contentDescription = "메뉴"
                                 )
                             }
                         }
@@ -129,30 +133,38 @@ fun MainScreen() {
             Row(
                 modifier = Modifier.fillMaxSize()
             ) {
-                if (isSmallScreen) {
-                    NavigationRail {
-                        Container.entries.forEachIndexed { index, container ->
-                            NavigationRailItem(
-                                selected = listState.firstVisibleItemIndex == index,
-                                onClick = {
-                                    if (listState.firstVisibleItemIndex != index) {
-                                        scope.launch {
-                                            listState.animateScrollToItem(index)
+                if (!isSmallScreen) {
+                    NavigationRail(
+                        containerColor = PortfolioTheme.colors.surfaceContainer
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(horizontal = 4.dp),
+                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            Container.entries.forEachIndexed { index, container ->
+                                NavigationRailItem(
+                                    selected = listState.firstVisibleItemIndex == index,
+                                    onClick = {
+                                        if (listState.firstVisibleItemIndex != index) {
+                                            scope.launch {
+                                                listState.animateScrollToItem(index)
+                                            }
                                         }
+                                    },
+                                    icon = {
+                                        Icon(
+                                            painter = painterResource(container.icon),
+                                            contentDescription = container.label
+                                        )
+                                    },
+                                    label = {
+                                        Text(
+                                            text = container.label,
+                                            style = PortfolioTheme.typography.labelMedium
+                                        )
                                     }
-                                },
-                                icon = {
-                                    Icon(
-                                        painter = painterResource(container.icon),
-                                        contentDescription = container.label
-                                    )
-                                },
-                                label = {
-                                    Text(
-                                        text = container.label
-                                    )
-                                }
-                            )
+                                )
+                            }
                         }
                     }
                 }
@@ -165,15 +177,17 @@ fun MainScreen() {
                 ) {
                     LazyColumn(
                         modifier = Modifier.widthIn(max = Constant.BASE_SCREEN_WIDTH),
-                        state = listState
+                        state = listState,
+                        contentPadding = PaddingValues(
+                            top = if (isSmallScreen) 50.dp else 200.dp
+                        ),
+                        verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 100.dp else 300.dp)
                     ) {
                         items(Container.entries) { item ->
                             when (item) {
                                 ABOUT_ME -> {
                                     AboutContainer(
-                                        modifier = Modifier.padding(
-                                            vertical = if (isSmallScreen) 150.dp else 20.dp
-                                        ),
+                                        modifier = Modifier.fillMaxWidth(),
                                         isSmallScreen = isSmallScreen
                                     )
                                 }
@@ -198,12 +212,6 @@ fun MainScreen() {
                     }
                 }
             }
-        }
-    }
-
-    LaunchedEffect(isSmallScreen) {
-        if (isSmallScreen) {
-            drawerState.close()
         }
     }
 }

@@ -20,15 +20,12 @@ fun CareerContainer(
     ) {
         Text(
             text = "경력",
-            modifier = Modifier
-                .padding(
-                    vertical = 40.dp
-                )
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             style = PortfolioTheme.typography.displayMedium.copy(
                 textAlign = TextAlign.Center
             )
         )
+        Spacer(Modifier.height(40.dp))
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
