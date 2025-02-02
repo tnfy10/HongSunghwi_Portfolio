@@ -1,4 +1,4 @@
-package hongsunghwi.portfolio.view
+package hongsunghwi.portfolio.feature.about
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -25,8 +25,8 @@ fun AboutContainer(
     ) {
         Column(
             modifier = Modifier.padding(
-                horizontal = if (isSmallScreen) 20.dp else 30.dp,
-                vertical = if (isSmallScreen) 30.dp else 50.dp
+                horizontal = if (isSmallScreen) 16.dp else 32.dp,
+                vertical = if (isSmallScreen) 32.dp else 56.dp
             )
         ) {
             AsyncImage(
@@ -37,12 +37,12 @@ fun AboutContainer(
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
-            Spacer(Modifier.height(30.dp))
+            Spacer(Modifier.height(32.dp))
             Text(
                 text = "홍성휘",
                 style = PortfolioTheme.typography.displayMedium
             )
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(8.dp))
             Text(
                 text = buildAnnotatedString {
                     append("Tel : ")
@@ -57,7 +57,7 @@ fun AboutContainer(
                 },
                 style = PortfolioTheme.typography.titleMedium
             )
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(32.dp))
             Text(
                 text = buildAnnotatedString {
                     append("Android SDK, Jetpack을 이용한 안드로이드 앱 개발과 Flutter를 이용한 크로스 플랫폼 앱 개발 경험이 있습니다.")

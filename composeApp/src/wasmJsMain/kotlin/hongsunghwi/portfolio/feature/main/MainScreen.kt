@@ -1,4 +1,4 @@
-package hongsunghwi.portfolio.view
+package hongsunghwi.portfolio.feature.main
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -14,9 +14,15 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import hongsunghwi.portfolio.core.Constant
+import hongsunghwi.portfolio.core.constant.Container
+import hongsunghwi.portfolio.core.constant.Container.*
+import hongsunghwi.portfolio.core.constant.Size
 import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
-import hongsunghwi.portfolio.view.Container.*
+import hongsunghwi.portfolio.feature.about.AboutContainer
+import hongsunghwi.portfolio.feature.career.CareerContainer
+import hongsunghwi.portfolio.feature.education.EducationContainer
+import hongsunghwi.portfolio.feature.project.ProjectsContainer
+import hongsunghwi.portfolio.feature.skill.SkillsContainer
 import hongsunghwi_portfolio.composeapp.generated.resources.Res
 import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_24
 import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_open_24
@@ -30,7 +36,7 @@ fun MainScreen() {
     val scope = rememberCoroutineScope()
     var screenWidth by remember { mutableStateOf(Dp.Unspecified) }
     val isSmallScreen by remember(screenWidth) {
-        mutableStateOf(screenWidth < Constant.BASE_SCREEN_WIDTH)
+        mutableStateOf(screenWidth < Size.BASE_SCREEN_WIDTH)
     }
     val listState = rememberLazyListState()
 
@@ -176,10 +182,10 @@ fun MainScreen() {
                     contentAlignment = Alignment.Center
                 ) {
                     LazyColumn(
-                        modifier = Modifier.widthIn(max = Constant.BASE_SCREEN_WIDTH),
+                        modifier = Modifier.widthIn(max = Size.BASE_SCREEN_WIDTH),
                         state = listState,
                         contentPadding = PaddingValues(
-                            top = if (isSmallScreen) 50.dp else 200.dp
+                            top = if (isSmallScreen) 48.dp else 200.dp
                         ),
                         verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 100.dp else 300.dp)
                     ) {
@@ -197,7 +203,11 @@ fun MainScreen() {
                                 }
 
                                 PROJECTS -> {
-                                    ProjectsContainer()
+                                    ProjectsContainer(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        isSmallScreen = isSmallScreen,
+                                        columns = if (screenWidth <= Size.BASE_MOBILE_SCREEN_WIDTH) 1 else 2
+                                    )
                                 }
 
                                 SKILLS -> {

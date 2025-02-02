@@ -1,4 +1,4 @@
-package hongsunghwi.portfolio.view
+package hongsunghwi.portfolio.feature.career
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
@@ -25,9 +25,9 @@ fun CareerContainer(
                 textAlign = TextAlign.Center
             )
         )
-        Spacer(Modifier.height(40.dp))
+        Spacer(Modifier.height(60.dp))
         Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CareerCard(
@@ -38,7 +38,7 @@ fun CareerContainer(
                 skills = listOf("Android", "Kotlin", "Flutter", "Dart", "Firebase", "Git", "Jira", "Figma")
             ) {
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     Column {
                         Text(
@@ -49,7 +49,7 @@ fun CareerContainer(
                             text = "2023.03 - 2024.12",
                             style = PortfolioTheme.typography.titleSmall
                         )
-                        Spacer(Modifier.height(5.dp))
+                        Spacer(Modifier.height(8.dp))
                         Text(
                             text = buildAnnotatedString {
                                 append("- 실시간 지수, 양봉 차트 개발\n")
@@ -69,7 +69,7 @@ fun CareerContainer(
                             text = "2021.12 - 2023.02",
                             style = PortfolioTheme.typography.titleSmall
                         )
-                        Spacer(Modifier.height(5.dp))
+                        Spacer(Modifier.height(8.dp))
                         Text(
                             text = buildAnnotatedString {
                                 append("- LS증권 Xing API를 이용하여 매매, 주가 정보 개발\n")

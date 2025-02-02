@@ -1,4 +1,4 @@
-package hongsunghwi.portfolio.view
+package hongsunghwi.portfolio.core.constant
 
 import hongsunghwi_portfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource

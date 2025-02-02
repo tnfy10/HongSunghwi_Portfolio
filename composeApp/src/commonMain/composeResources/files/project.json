@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "filter": "COMPANY",
+    "name": "KIWI",
+    "startDate": "2021.12",
+    "endDate": "2023.02",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "GetX",
+      "Android",
+      "Kotlin",
+      "Coroutine",
+      "Flow"
+    ],
+    "intro": "사용자의 투자성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다."
+  },
+  {
+    "id": 2,
+    "filter": "COMPANY",
+    "name": "DayUp",
+    "startDate": "2023.03",
+    "endDate": "2024.12",
+    "skills": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "MVVM",
+      "Coroutine",
+      "Flow",
+      "Paging3",
+      "Navigation",
+      "Retrofit",
+      "Google Play Billing"
+    ],
+    "intro": "실시간 주식 정보 제공 및 각 종목 담당 멘토들의 강의를 볼 수 있으며, 멘토 커뮤니티를 통해 소통을 할 수 있는 어플리케이션 입니다."
+  }
+]
