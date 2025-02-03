@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "composeApp\\build\\dist\\wasmJs\\productionExecutable",
+    "public": "composeApp/build/dist/wasmJs/productionExecutable",
     "ignore": [
       "firebase.json",
       "**/.*",
