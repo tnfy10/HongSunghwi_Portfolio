@@ -1,7 +1,11 @@
 package hongsunghwi.portfolio.feature.main
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -25,9 +30,9 @@ import hongsunghwi.portfolio.feature.career.CareerContainer
 import hongsunghwi.portfolio.feature.education.EducationContainer
 import hongsunghwi.portfolio.feature.project.ProjectsContainer
 import hongsunghwi.portfolio.feature.skill.SkillsContainer
-import hongsunghwi_portfolio.composeapp.generated.resources.Res
-import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_24
-import hongsunghwi_portfolio.composeapp.generated.resources.ic_menu_open_24
+import hongsunghwi_portfolio.composeapp.generated.resources.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 
@@ -41,6 +46,7 @@ fun MainScreen() {
         mutableStateOf(screenWidth < Size.BASE_SCREEN_WIDTH)
     }
     val listState = rememberLazyListState()
+    val density = LocalDensity.current
 
     LaunchedEffect(isSmallScreen) {
         if (!isSmallScreen) {
@@ -106,7 +112,7 @@ fun MainScreen() {
         drawerState = drawerState,
         gesturesEnabled = isSmallScreen
     ) {
-        val density = LocalDensity.current
+        val uriHandler = LocalUriHandler.current
 
         Scaffold(
             modifier = Modifier.onSizeChanged {
@@ -133,8 +139,44 @@ fun MainScreen() {
                                     contentDescription = "메뉴"
                                 )
                             }
+                        },
+                        actions = {
+                            IconButton(
+                                onClick = {
+                                    uriHandler.openUri("https://github.com/tnfy10")
+                                }
+                            ) {
+                                Icon(
+                                    painter = if (isSystemInDarkTheme()) {
+                                        painterResource(Res.drawable.ic_github_dark)
+                                    } else {
+                                        painterResource(Res.drawable.ic_github)
+                                    },
+                                    contentDescription = "GitHub"
+                                )
+                            }
                         }
                     )
+                }
+            },
+            floatingActionButton = {
+                AnimatedVisibility(
+                    visible = listState.firstVisibleItemIndex != 0,
+                    enter = fadeIn(),
+                    exit = fadeOut()
+                ) {
+                    FloatingActionButton(
+                        onClick = {
+                            scope.launch {
+                                listState.animateScrollToItem(0)
+                            }
+                        }
+                    ) {
+                        Icon(
+                            painter = painterResource(Res.drawable.ic_arrow_upward_24),
+                            contentDescription = "위로가기"
+                        )
+                    }
                 }
             }
         ) { innerPadding ->
@@ -143,7 +185,24 @@ fun MainScreen() {
             ) {
                 if (!isSmallScreen) {
                     NavigationRail(
-                        containerColor = PortfolioTheme.colors.surfaceContainer
+                        containerColor = PortfolioTheme.colors.surfaceContainer,
+                        header = {
+                            FloatingActionButton(
+                                onClick = {
+                                    uriHandler.openUri("https://github.com/tnfy10")
+                                },
+                                modifier = Modifier.padding(vertical = 16.dp)
+                            ) {
+                                Icon(
+                                    painter = if (isSystemInDarkTheme()) {
+                                        painterResource(Res.drawable.ic_github_dark)
+                                    } else {
+                                        painterResource(Res.drawable.ic_github)
+                                    },
+                                    contentDescription = "GitHub"
+                                )
+                            }
+                        }
                     ) {
                         Column(
                             modifier = Modifier.padding(horizontal = 4.dp),

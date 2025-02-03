@@ -22,12 +22,12 @@ fun App() {
         }.build()
     }
 
-    PortfolioTheme {
-        KoinApplication(
-            application = {
-                modules(repositoryModule, viewModelModule)
-            }
-        ) {
+    KoinApplication(
+        application = {
+            modules(repositoryModule, viewModelModule)
+        }
+    ) {
+        PortfolioTheme {
             MainScreen()
         }
     }
