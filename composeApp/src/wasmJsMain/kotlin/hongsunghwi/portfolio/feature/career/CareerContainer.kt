@@ -34,6 +34,7 @@ fun CareerContainer(
                 modifier = Modifier.fillMaxWidth(),
                 companyName = "(주) 이지테크핀",
                 startDate = "2021.12",
+                resignationDay = "2025.01",
                 companyIntro = "로보어드바이저 및 블록체인/디지털 월렛 서비스"
             ) {
                 Column(
