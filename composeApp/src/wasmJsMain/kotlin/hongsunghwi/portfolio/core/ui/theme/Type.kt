@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import hongsunghwi_portfolio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.Font
 
-private val pretendardFontFamily: FontFamily
+val pretendardFontFamily: FontFamily
     @Composable
     get() = FontFamily(
         Font(Res.font.Pretendard_Thin, FontWeight.Thin),

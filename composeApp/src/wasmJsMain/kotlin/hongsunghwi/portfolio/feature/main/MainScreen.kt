@@ -24,15 +24,12 @@ import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.constant.Container
 import hongsunghwi.portfolio.core.constant.Container.*
 import hongsunghwi.portfolio.core.constant.Size
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 import hongsunghwi.portfolio.feature.about.AboutContainer
 import hongsunghwi.portfolio.feature.career.CareerContainer
 import hongsunghwi.portfolio.feature.education.EducationContainer
 import hongsunghwi.portfolio.feature.project.ProjectsContainer
 import hongsunghwi.portfolio.feature.skill.SkillsContainer
 import hongsunghwi_portfolio.composeapp.generated.resources.*
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 
@@ -57,7 +54,7 @@ fun MainScreen() {
     ModalNavigationDrawer(
         drawerContent = {
             ModalDrawerSheet(
-                drawerContainerColor = PortfolioTheme.colors.surface
+                drawerContainerColor = MaterialTheme.colorScheme.surface
             ) {
                 Box(
                     modifier = Modifier
@@ -84,7 +81,7 @@ fun MainScreen() {
                         label = {
                             Text(
                                 text = container.label,
-                                style = PortfolioTheme.typography.labelLarge
+                                style = MaterialTheme.typography.labelLarge
                             )
                         },
                         selected = index == listState.firstVisibleItemIndex,
@@ -185,7 +182,7 @@ fun MainScreen() {
             ) {
                 if (!isSmallScreen) {
                     NavigationRail(
-                        containerColor = PortfolioTheme.colors.surfaceContainer,
+                        containerColor = MaterialTheme.colorScheme.surfaceContainer,
                         header = {
                             FloatingActionButton(
                                 onClick = {
@@ -227,7 +224,7 @@ fun MainScreen() {
                                     label = {
                                         Text(
                                             text = container.label,
-                                            style = PortfolioTheme.typography.labelMedium
+                                            style = MaterialTheme.typography.labelMedium
                                         )
                                     }
                                 )
@@ -299,7 +296,7 @@ fun MainScreen() {
                                         append("\n")
                                         append("Compose Multiplatform으로 제작된 사이트입니다.")
                                     },
-                                    style = PortfolioTheme.typography.bodySmall.copy(
+                                    style = MaterialTheme.typography.bodySmall.copy(
                                         textAlign = TextAlign.Center
                                     )
                                 )

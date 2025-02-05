@@ -3,13 +3,8 @@ package hongsunghwi.portfolio.feature.project
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -18,7 +13,6 @@ import hongsunghwi.portfolio.core.constant.ProjectFilter
 import hongsunghwi.portfolio.core.data.model.Project
 import hongsunghwi.portfolio.core.ui.component.ProjectCard
 import hongsunghwi.portfolio.core.ui.state.UiState
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -37,7 +31,7 @@ fun ProjectsContainer(
         Text(
             text = "프로젝트",
             modifier = Modifier.fillMaxWidth(),
-            style = PortfolioTheme.typography.displayMedium.copy(
+            style = MaterialTheme.typography.displayMedium.copy(
                 textAlign = TextAlign.Center
             )
         )
@@ -55,7 +49,7 @@ fun ProjectsContainer(
                     label = {
                         Text(
                             text = it.label,
-                            style = PortfolioTheme.typography.labelLarge
+                            style = MaterialTheme.typography.labelLarge
                         )
                     }
                 )
@@ -94,7 +88,7 @@ fun ProjectsContainer(
                             ) {
                                 Text(
                                     text = "현재 진행된 프로젝트가 없습니다.",
-                                    style = PortfolioTheme.typography.titleLarge
+                                    style = MaterialTheme.typography.titleLarge
                                 )
                             }
                         }

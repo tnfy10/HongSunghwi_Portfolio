@@ -5,12 +5,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -42,23 +42,23 @@ fun ProjectCard(
                         horizontal = 8.dp,
                         vertical = 4.dp
                     ),
-                    style = PortfolioTheme.typography.labelMedium.copy(
+                    style = MaterialTheme.typography.labelMedium.copy(
                         color = Color.White
                     )
                 )
                 Spacer(Modifier.height(15.dp))
                 Text(
                     text = name,
-                    style = PortfolioTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge
                 )
                 Text(
                     text = "$startDate - ${endDate ?: "(진행 중)"}",
-                    style = PortfolioTheme.typography.titleSmall
+                    style = MaterialTheme.typography.titleSmall
                 )
                 Spacer(Modifier.height(15.dp))
                 Text(
                     text = intro,
-                    style = PortfolioTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(Modifier.height(20.dp))
             }
@@ -72,7 +72,7 @@ fun ProjectCard(
                         label = {
                             Text(
                                 text = it,
-                                style = PortfolioTheme.typography.labelMedium
+                                style = MaterialTheme.typography.labelMedium
                             )
                         }
                     )

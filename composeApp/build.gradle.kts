@@ -41,7 +41,6 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlin.serialization.json)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor3)

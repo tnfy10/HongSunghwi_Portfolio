@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 
 @Composable
 fun CareerCard(
@@ -28,7 +28,7 @@ fun CareerCard(
         ) {
             Text(
                 text = companyName,
-                style = PortfolioTheme.typography.titleLarge
+                style = MaterialTheme.typography.titleLarge
             )
             Spacer(Modifier.height(4.dp))
             Text(

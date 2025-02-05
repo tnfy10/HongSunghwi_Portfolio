@@ -1,7 +1,9 @@
 package hongsunghwi.portfolio.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val lightScheme = lightColorScheme(
@@ -92,13 +94,4 @@ fun PortfolioTheme(
         typography = pretendardTypography,
         content = content
     )
-}
-
-object PortfolioTheme {
-    val colors: ColorScheme
-        @Composable
-        get() = MaterialTheme.colorScheme
-    val typography: Typography
-        @Composable
-        get() = pretendardTypography
 }

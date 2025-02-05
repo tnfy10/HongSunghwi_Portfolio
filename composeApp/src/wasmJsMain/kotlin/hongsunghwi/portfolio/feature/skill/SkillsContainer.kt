@@ -2,13 +2,13 @@ package hongsunghwi.portfolio.feature.skill
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -23,7 +23,7 @@ fun SkillsContainer(
         Text(
             text = "Skills",
             modifier = Modifier.fillMaxWidth(),
-            style = PortfolioTheme.typography.displayMedium.copy(
+            style = MaterialTheme.typography.displayMedium.copy(
                 textAlign = TextAlign.Center
             )
         )
@@ -39,7 +39,7 @@ fun SkillsContainer(
                     label = {
                         Text(
                             text = it,
-                            style = PortfolioTheme.typography.labelLarge
+                            style = MaterialTheme.typography.labelLarge
                         )
                     }
                 )

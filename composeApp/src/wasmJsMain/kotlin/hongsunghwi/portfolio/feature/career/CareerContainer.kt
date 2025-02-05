@@ -1,6 +1,7 @@
 package hongsunghwi.portfolio.feature.career
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,7 +10,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.ui.component.CareerCard
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 
 @Composable
 fun CareerContainer(
@@ -21,7 +21,7 @@ fun CareerContainer(
         Text(
             text = "경력",
             modifier = Modifier.fillMaxWidth(),
-            style = PortfolioTheme.typography.displayMedium.copy(
+            style = MaterialTheme.typography.displayMedium.copy(
                 textAlign = TextAlign.Center
             )
         )
@@ -43,11 +43,11 @@ fun CareerContainer(
                     Column {
                         Text(
                             text = "DayUp(구독형 주식 정보 제공 앱) 개발",
-                            style = PortfolioTheme.typography.titleMedium
+                            style = MaterialTheme.typography.titleMedium
                         )
                         Text(
                             text = "2023.03 - 2024.12",
-                            style = PortfolioTheme.typography.titleSmall
+                            style = MaterialTheme.typography.titleSmall
                         )
                         Spacer(Modifier.height(8.dp))
                         Text(
@@ -63,11 +63,11 @@ fun CareerContainer(
                     Column {
                         Text(
                             text = "KIWI(주식 자동 매매 앱) 개발 및 유지보수",
-                            style = PortfolioTheme.typography.titleMedium
+                            style = MaterialTheme.typography.titleMedium
                         )
                         Text(
                             text = "2021.12 - 2023.02",
-                            style = PortfolioTheme.typography.titleSmall
+                            style = MaterialTheme.typography.titleSmall
                         )
                         Spacer(Modifier.height(8.dp))
                         Text(

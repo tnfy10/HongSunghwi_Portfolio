@@ -2,6 +2,7 @@ package hongsunghwi.portfolio.feature.about
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,7 +14,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 
 @Composable
 fun AboutContainer(
@@ -40,7 +40,7 @@ fun AboutContainer(
             Spacer(Modifier.height(32.dp))
             Text(
                 text = "홍성휘",
-                style = PortfolioTheme.typography.displayMedium
+                style = MaterialTheme.typography.displayMedium
             )
             Spacer(Modifier.height(8.dp))
             Text(
@@ -55,7 +55,7 @@ fun AboutContainer(
                         append("tnfy10@gmail.com")
                     }
                 },
-                style = PortfolioTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text(
@@ -64,7 +64,7 @@ fun AboutContainer(
                     append("\n")
                     append("사용자 친화적인 앱 개발을 지향합니다.")
                 },
-                style = PortfolioTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge
             )
         }
     }

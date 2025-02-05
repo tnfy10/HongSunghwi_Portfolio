@@ -1,10 +1,7 @@
 package hongsunghwi.portfolio.feature.education
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -14,7 +11,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.data.model.Education
 import hongsunghwi.portfolio.core.ui.state.UiState
-import hongsunghwi.portfolio.core.ui.theme.PortfolioTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -31,7 +27,7 @@ fun EducationContainer(
         Text(
             text = "학력",
             modifier = Modifier.fillMaxWidth(),
-            style = PortfolioTheme.typography.displayMedium.copy(
+            style = MaterialTheme.typography.displayMedium.copy(
                 textAlign = TextAlign.Center
             )
         )
@@ -71,7 +67,7 @@ fun EducationContainer(
                             ) {
                                 Text(
                                     text = "${item.admissionDate} - ${item.graduationDate}",
-                                    style = PortfolioTheme.typography.titleSmall
+                                    style = MaterialTheme.typography.titleSmall
                                 )
                                 VerticalDivider(
                                     modifier = Modifier.fillMaxHeight()
@@ -81,7 +77,7 @@ fun EducationContainer(
                                 ) {
                                     Text(
                                         text = item.name,
-                                        style = PortfolioTheme.typography.titleLarge
+                                        style = MaterialTheme.typography.titleLarge
                                     )
                                     Text(
                                         text = "${item.department} ${item.degree}"
@@ -89,7 +85,7 @@ fun EducationContainer(
                                     Spacer(Modifier.height(28.dp))
                                     Text(
                                         text = item.status,
-                                        style = PortfolioTheme.typography.bodyMedium
+                                        style = MaterialTheme.typography.bodyMedium
                                     )
                                 }
                             }
