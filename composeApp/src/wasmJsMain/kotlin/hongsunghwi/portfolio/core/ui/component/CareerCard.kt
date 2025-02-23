@@ -32,7 +32,7 @@ fun CareerCard(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = "$startDate - ${resignationDay ?: "(재직 중)"}"
+                text = "$startDate - ${resignationDay ?: "재직 중"}"
             )
             Spacer(Modifier.height(4.dp))
             Text(

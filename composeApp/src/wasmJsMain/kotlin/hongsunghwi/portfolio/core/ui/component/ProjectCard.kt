@@ -52,7 +52,7 @@ fun ProjectCard(
                     style = MaterialTheme.typography.titleLarge
                 )
                 Text(
-                    text = "$startDate - ${endDate ?: "(진행 중)"}",
+                    text = "$startDate - ${endDate ?: "진행 중"}",
                     style = MaterialTheme.typography.titleSmall
                 )
                 Spacer(Modifier.height(15.dp))
