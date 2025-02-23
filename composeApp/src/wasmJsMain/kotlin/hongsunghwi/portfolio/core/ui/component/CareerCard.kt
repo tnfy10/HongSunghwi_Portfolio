@@ -16,7 +16,7 @@ fun CareerCard(
     modifier: Modifier = Modifier,
     companyName: String,
     startDate: String,
-    resignationDay: String? = null,
+    endDate: String? = null,
     companyIntro: String,
     content: @Composable () -> Unit
 ) {
@@ -32,7 +32,7 @@ fun CareerCard(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = "$startDate - ${resignationDay ?: "재직 중"}"
+                text = "$startDate - ${endDate ?: "재직 중"}"
             )
             Spacer(Modifier.height(4.dp))
             Text(

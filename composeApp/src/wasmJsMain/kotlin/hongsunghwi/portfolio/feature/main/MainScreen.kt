@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -263,7 +262,10 @@ fun MainScreen() {
                                 }
 
                                 CAREER -> {
-                                    CareerContainer()
+                                    CareerContainer(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        isSmallScreen = isSmallScreen
+                                    )
                                 }
 
                                 PROJECTS -> {
@@ -279,15 +281,11 @@ fun MainScreen() {
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(100.dp),
+                                    .height(50.dp),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = buildAnnotatedString {
-                                        append("Copyright 2025. Hong Sunghwi. All rights reserved.")
-                                        append("\n")
-                                        append("Compose Multiplatform으로 제작된 사이트입니다.")
-                                    },
+                                    text = "Compose Multiplatform으로 제작된 사이트입니다.",
                                     style = MaterialTheme.typography.bodySmall.copy(
                                         textAlign = TextAlign.Center
                                     )
