@@ -281,7 +281,7 @@ fun MainScreen() {
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(50.dp),
+                                    .height(100.dp),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
