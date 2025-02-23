@@ -26,7 +26,6 @@ import hongsunghwi.portfolio.core.constant.Container.*
 import hongsunghwi.portfolio.core.constant.Size
 import hongsunghwi.portfolio.feature.about.AboutContainer
 import hongsunghwi.portfolio.feature.career.CareerContainer
-import hongsunghwi.portfolio.feature.education.EducationContainer
 import hongsunghwi.portfolio.feature.project.ProjectsContainer
 import hongsunghwi.portfolio.feature.skill.SkillsContainer
 import hongsunghwi_portfolio.composeapp.generated.resources.*
@@ -256,6 +255,13 @@ fun MainScreen() {
                                     )
                                 }
 
+                                SKILLS -> {
+                                    SkillsContainer(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        isSmallScreen = isSmallScreen
+                                    )
+                                }
+
                                 CAREER -> {
                                     CareerContainer()
                                 }
@@ -265,20 +271,6 @@ fun MainScreen() {
                                         modifier = Modifier.fillMaxWidth(),
                                         isSmallScreen = isSmallScreen,
                                         columns = if (screenWidth <= Size.BASE_MOBILE_SCREEN_WIDTH) 1 else 2
-                                    )
-                                }
-
-                                SKILLS -> {
-                                    SkillsContainer(
-                                        modifier = Modifier.fillMaxWidth(),
-                                        isSmallScreen = isSmallScreen
-                                    )
-                                }
-
-                                EDUCATION -> {
-                                    EducationContainer(
-                                        modifier = Modifier.fillMaxWidth(),
-                                        isSmallScreen = isSmallScreen
                                     )
                                 }
                             }
