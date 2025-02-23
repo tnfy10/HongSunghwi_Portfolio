@@ -29,7 +29,7 @@ fun SkillsContainer(
         )
         Spacer(Modifier.height(60.dp))
         FlowRow(
-            modifier = Modifier.heightIn(min = if (isSmallScreen) 100.dp else 200.dp),
+            modifier = Modifier.heightIn(min = if (isSmallScreen) 100.dp else 250.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             val skills = listOf("Android", "Android Jetpack", "Kotlin", "Java", "Flutter", "Dart", "Firebase")
