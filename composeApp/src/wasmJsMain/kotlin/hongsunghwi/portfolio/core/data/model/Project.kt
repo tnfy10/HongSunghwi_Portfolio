@@ -11,5 +11,7 @@ data class Project(
     val startDate: String,
     val endDate: String?,
     val skills: List<String>,
-    val intro: String
+    val intro: String,
+    val directory: String,
+    val hasImage: Boolean,
 )

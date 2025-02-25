@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.constant.Container
@@ -241,7 +240,8 @@ fun MainScreen() {
                         modifier = Modifier.widthIn(max = Size.BASE_SCREEN_WIDTH),
                         state = listState,
                         contentPadding = PaddingValues(
-                            top = if (isSmallScreen) 48.dp else 96.dp
+                            top = if (isSmallScreen) 48.dp else 96.dp,
+                            bottom = 100.dp
                         ),
                         verticalArrangement = Arrangement.spacedBy(if (isSmallScreen) 100.dp else 300.dp)
                     ) {
@@ -275,21 +275,6 @@ fun MainScreen() {
                                         columns = if (screenWidth <= Size.BASE_MOBILE_SCREEN_WIDTH) 1 else 2
                                     )
                                 }
-                            }
-                        }
-                        item {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(100.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = "Compose Multiplatform으로 제작된 사이트입니다.",
-                                    style = MaterialTheme.typography.bodySmall.copy(
-                                        textAlign = TextAlign.Center
-                                    )
-                                )
                             }
                         }
                     }

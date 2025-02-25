@@ -2,11 +2,12 @@
 androidx-lifecycle = "2.8.4"
 compose-multiplatform = "1.7.3"
 junit = "4.13.2"
-kotlin = "2.0.21"
+kotlin = "2.1.10"
 kotlin-serialization-json = "1.7.3"
 coil = "3.0.4"
 ktor = "3.0.3"
 koin = "4.0.2"
+multiplatformMarkdownRenderer = "0.31.0"
 
 [libraries]
 kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization-json" }
@@ -22,6 +23,9 @@ ktor-engine-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+multiplatformMarkdownRenderer = { module = "com.mikepenz:multiplatform-markdown-renderer", version.ref = "multiplatformMarkdownRenderer" }
+multiplatformMarkdownRenderer-m3 = { module = "com.mikepenz:multiplatform-markdown-renderer-m3", version.ref = "multiplatformMarkdownRenderer" }
+multiplatformMarkdownRenderer-coil3 = { module = "com.mikepenz:multiplatform-markdown-renderer-coil3", version.ref = "multiplatformMarkdownRenderer" }
 
 [plugins]
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }

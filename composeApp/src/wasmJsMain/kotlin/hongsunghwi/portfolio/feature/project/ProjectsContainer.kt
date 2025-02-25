@@ -24,7 +24,31 @@ fun ProjectsContainer(
 ) {
     val projectState by projectsViewModel.projectState.collectAsState()
     val selectedFilter by projectsViewModel.filterState.collectAsState()
+    val projectReadmeMap by projectsViewModel.projectReadmeMap.collectAsState()
 
+    ProjectsContainerImpl(
+        modifier = modifier,
+        isSmallScreen = isSmallScreen,
+        columns = columns,
+        selectedFilter = selectedFilter,
+        onChangeFilter = projectsViewModel::changeFilter,
+        projectState = projectState,
+        projectReadmeMap = projectReadmeMap,
+        onFetchProjectReadme = projectsViewModel::fetchProjectReadme
+    )
+}
+
+@Composable
+private fun ProjectsContainerImpl(
+    modifier: Modifier,
+    isSmallScreen: Boolean,
+    columns: Int,
+    selectedFilter: ProjectFilter,
+    onChangeFilter: (ProjectFilter) -> Unit,
+    projectState: UiState<List<Project>>,
+    projectReadmeMap: Map<String, String>,
+    onFetchProjectReadme: (directory: String) -> Unit
+) {
     Column(
         modifier = modifier
     ) {
@@ -44,7 +68,7 @@ fun ProjectsContainer(
                 FilterChip(
                     selected = it == selectedFilter,
                     onClick = {
-                        projectsViewModel.changeFilter(it)
+                        onChangeFilter(it)
                     },
                     label = {
                         Text(
@@ -74,7 +98,7 @@ fun ProjectsContainer(
                 }
 
                 is UiState.Success<List<Project>> -> {
-                    val projects = (projectState as UiState.Success<List<Project>>).data
+                    val projects = projectState.data
 
                     if (projects.isEmpty()) {
                         Card(
@@ -107,10 +131,23 @@ fun ProjectsContainer(
                                         Spacer(Modifier.weight(1f).fillMaxHeight())
                                     } else {
                                         val item = row[col]
+                                        var showDetailDialog by remember { mutableStateOf(false) }
+
+                                        if (showDetailDialog) {
+                                            ProjectDetailDialog(
+                                                onDismiss = {
+                                                    showDetailDialog = false
+                                                },
+                                                content = projectReadmeMap[item.directory]
+                                            )
+                                        }
 
                                         ProjectCard(
-                                            onClick = {
-                                                // TODO: 프로젝트 상세
+                                            onClickReadme = {
+                                                if (projectReadmeMap[item.directory] == null) {
+                                                    onFetchProjectReadme(item.directory)
+                                                }
+                                                showDetailDialog = true
                                             },
                                             modifier = Modifier
                                                 .weight(1f)
