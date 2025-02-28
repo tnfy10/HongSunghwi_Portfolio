@@ -66,20 +66,54 @@ fun CareerContainer(
                             Column(
                                 verticalArrangement = Arrangement.spacedBy(16.dp),
                             ) {
-                                career.works.forEach { work ->
+                                career.contents.forEach { content ->
                                     Column {
                                         Text(
-                                            text = work.name,
+                                            text = content.name,
                                             style = MaterialTheme.typography.titleMedium
                                         )
                                         Text(
-                                            text = "${work.startDate} - ${work.endDate ?: "진행 중"}",
+                                            text = "${content.startDate} - ${content.endDate ?: "진행 중"}",
                                             style = MaterialTheme.typography.titleSmall
                                         )
                                         Spacer(Modifier.height(8.dp))
                                         Text(
-                                            text = work.content
+                                            text = "팀 구성",
+                                            style = MaterialTheme.typography.titleSmall
                                         )
+                                        Text(
+                                            text = content.team,
+                                            style = MaterialTheme.typography.bodyMedium
+                                        )
+                                        Spacer(Modifier.height(8.dp))
+                                        Text(
+                                            text = "사용 기술",
+                                            style = MaterialTheme.typography.titleSmall
+                                        )
+                                        Text(
+                                            text = content.tech.joinToString(", "),
+                                            style = MaterialTheme.typography.bodyMedium
+                                        )
+                                        Spacer(Modifier.height(8.dp))
+                                        Text(
+                                            text = "주요 업무",
+                                            style = MaterialTheme.typography.titleSmall
+                                        )
+                                        Text(
+                                            text = content.work,
+                                            style = MaterialTheme.typography.bodyMedium
+                                        )
+                                        content.performance?.let {
+                                            Spacer(Modifier.height(8.dp))
+                                            Text(
+                                                text = "주요 성과 및 문제해결",
+                                                style = MaterialTheme.typography.titleSmall
+                                            )
+                                            Text(
+                                                text = it,
+                                                style = MaterialTheme.typography.bodyMedium
+                                            )
+                                        }
                                     }
                                 }
                             }

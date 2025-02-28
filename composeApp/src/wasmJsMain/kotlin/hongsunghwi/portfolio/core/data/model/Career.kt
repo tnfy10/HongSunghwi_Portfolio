@@ -9,14 +9,17 @@ data class Career(
     val startDate: String,
     val endDate: String?,
     val intro: String,
-    val works: List<Work>
-)
-
-@Serializable
-data class Work(
-    val id: Int,
-    val name: String,
-    val startDate: String,
-    val endDate: String?,
-    val content: String
-)
+    val contents: List<Content>
+) {
+    @Serializable
+    data class Content(
+        val id: Int,
+        val name: String,
+        val startDate: String,
+        val endDate: String?,
+        val team: String,
+        val tech: List<String>,
+        val work: String,
+        val performance: String?
+    )
+}

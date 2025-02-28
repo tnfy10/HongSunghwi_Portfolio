@@ -14,7 +14,7 @@ class CareerRepositoryImpl : CareerRepository {
         val jsonString = readBytes.decodeToString()
         val careers = Json.decodeFromString<List<Career>>(jsonString).map { career ->
             career.copy(
-                works = career.works.sortedByDescending { it.id }
+                contents = career.contents.sortedByDescending { it.id }
             )
         }
         emit(careers.sortedByDescending { it.id })

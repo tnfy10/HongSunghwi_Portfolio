@@ -16,6 +16,7 @@ import org.jetbrains.compose.resources.painterResource
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ProjectCard(
+    onClickRepo: () -> Unit,
     onClickReadme: () -> Unit,
     onClickImages: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
@@ -24,7 +25,9 @@ fun ProjectCard(
     startDate: String,
     endDate: String?,
     intro: String,
-    skills: List<String>
+    skills: List<String>,
+    showReadme: Boolean,
+    repo: String
 ) {
     Card(
         modifier = modifier
@@ -84,16 +87,25 @@ fun ProjectCard(
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Button(
-                    onClick = onClickReadme
+                    onClick = onClickRepo
                 ) {
-                    Icon(
-                        painter = painterResource(Res.drawable.ic_two_pager_24),
-                        contentDescription = "자세히 보기"
-                    )
-                    Spacer(Modifier.widthIn(4.dp))
                     Text(
-                        text = "자세히 보기"
+                        text = repo
                     )
+                }
+                if (showReadme) {
+                    Button(
+                        onClick = onClickReadme
+                    ) {
+                        Icon(
+                            painter = painterResource(Res.drawable.ic_two_pager_24),
+                            contentDescription = "자세히 보기"
+                        )
+                        Spacer(Modifier.widthIn(4.dp))
+                        Text(
+                            text = "자세히 보기"
+                        )
+                    }
                 }
                 onClickImages?.let {
                     Button(

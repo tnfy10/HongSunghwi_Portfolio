@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import hongsunghwi.portfolio.core.constant.ProjectFilter
@@ -49,6 +50,8 @@ private fun ProjectsContainerImpl(
     projectReadmeMap: Map<String, String>,
     onFetchProjectReadme: (directory: String) -> Unit
 ) {
+    val uriHandler = LocalUriHandler.current
+
     Column(
         modifier = modifier
     ) {
@@ -143,6 +146,9 @@ private fun ProjectsContainerImpl(
                                         }
 
                                         ProjectCard(
+                                            onClickRepo = {
+                                                uriHandler.openUri(item.repoUrl)
+                                            },
                                             onClickReadme = {
                                                 if (projectReadmeMap[item.directory] == null) {
                                                     onFetchProjectReadme(item.directory)
@@ -158,6 +164,8 @@ private fun ProjectsContainerImpl(
                                             endDate = item.endDate,
                                             intro = item.intro,
                                             skills = item.skills,
+                                            showReadme = item.showReadme,
+                                            repo = item.repo
                                         )
                                     }
                                 }

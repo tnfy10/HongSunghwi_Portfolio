@@ -28,15 +28,17 @@ fun CareerCard(
         ) {
             Text(
                 text = companyName,
-                style = MaterialTheme.typography.titleLarge
+                style = MaterialTheme.typography.headlineSmall
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = "$startDate - ${endDate ?: "재직 중"}"
+                text = "$startDate - ${endDate ?: "재직 중"}",
+                style = MaterialTheme.typography.titleMedium
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = companyIntro
+                text = companyIntro,
+                style = MaterialTheme.typography.titleMedium
             )
             Spacer(Modifier.height(32.dp))
             content()
