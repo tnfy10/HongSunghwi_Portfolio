@@ -15,7 +15,7 @@
     ],
     "intro": "환자의 병원 진료 예약과 대기인수 확인, 결제, 처방전 발급을 할 수 있는 어플리케이션 입니다.\n졸업작품전에서 최우수상을 수상하였습니다.",
     "directory": "hospi",
-    "showReadme": false,
+    "readme": null,
     "repo": "Github",
     "repoUrl": "https://github.com/tnfy10/hospi",
     "imageCount": 0
@@ -34,7 +34,7 @@
     ],
     "intro": "밤에만 운영하는 술집들이 낮에는 스터디룸으로 운영할 수 있게하고, 스터디룸 예약과 결제를 할 수 있는 어플리케이션 입니다.\n원티드에서 주최한 공모전으로 예선 진출 하였습니다.",
     "directory": "gongZone",
-    "showReadme": false,
+    "readme": null,
     "repo": "Github",
     "repoUrl": "https://github.com/tnfy10/GongZone",
     "imageCount": 0
@@ -59,7 +59,7 @@
     ],
     "intro": "사용자의 투자성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.",
     "directory": "kiwi",
-    "showReadme": true,
+    "readme": "## KIWI\n2021.12 - 2023.02  \n7명 (안드로이드 2명, 백엔드 3명, 기획 1명, 디자이너 1명)\n<br/><br/>\n\n---\n\n<br/><br/>\n\n#### 개요\n사용자의 투자 성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.  \n이외에도 코스피, 코스닥 지수 정보와 선물 차트 정보를 제공합니다.\n\n<br/><br/>\n\n#### 주요 기능\n- 사용자의 투자 성향에 따른 주식 자동 매매\n- 코스피, 코스닥 지수 정보 제공\n- 선물 차트\n\n<br/><br/>\n\n#### 사용 기술 및 언어\nAndroid, Kotlin, Coroutine, Flow, Hilt, Room, Flutter, Dart, Pigeon, GetX\n\n<br/><br/>\n\n#### 주요 업무\n- Hilt 도입 및 싱글톤 제거 작업\n- 주식 선물 차트 개발 (fl_chart)\n- 회원가입 개발 (휴대폰 번호 인증, 모두싸인 전자계약, 계좌 인증)\n- 관리종목 백업 및 복구 개발\n- 로그 전송 구현\n\n<br/><br/>",
     "repo": null,
     "repoUrl": null,
     "imageCount": 2
@@ -82,7 +82,7 @@
     ],
     "intro": "수도권에 있는 독립서점의 정보와 맞춤형 큐레이션 피드를 통해, 독림서점을 소개하는 어플리케이션 입니다.",
     "directory": "bookand",
-    "showReadme": false,
+    "readme": null,
     "repo": "Github",
     "repoUrl": "https://github.com/bookand-team/Bookand.Application",
     "imageCount": 0
@@ -110,7 +110,7 @@
     ],
     "intro": "실시간 주식 정보 제공 및 각 종목 담당 멘토들의 강의를 볼 수 있으며, 멘토 커뮤니티를 통해 소통을 할 수 있는 어플리케이션 입니다.",
     "directory": "dayUp",
-    "showReadme": true,
+    "readme": "## DayUp\n2023.02 - 2024.12  \n9명 (안드로이드 2명, iOS 1명, 백엔드 4명, 기획 1명, 디자이너 1명)\n<br/><br/>\n\n---\n\n<br/><br/>\n\n#### 개요\n국내 모든 주식 종목의 주가 정보와 동영상 정보를 제공하며, 종목별 멘토들의 강의 영상과 커뮤니티, 채팅을 통해 멘토와 소통할 수 있는 어플리케이션 입니다.\n\n<br/><br/>\n\n#### 주요 기능\n- 코스피, 코스닥 지수 정보 제공\n- 주식 종목 주가 정보 제공\n- 웹뷰를 통한 VOD, LIVE 스트리밍\n- 각 멘토별 커뮤니티를 통한 소통\n- 주식 장이 열리는 날마다 멘토들에게 받는 주식 정보\n\n<br/><br/>\n\n#### 사용 기술 및 언어\nAndroid, Kotlin, Coroutine, Flow, MVVM, Hilt, AAC, Jetpack Compose, Paging3, Navigation\n\n<br/><br/>\n\n#### 주요 업무\n- 앱 아키텍처 설계  \n당시에 앱 구조를 어떻게 할까 많이 고민을 하였는데, 요구하는 기능이 자주 바뀔 수 있다고 이야기를 들었었습니다. 그럼 기능 하나가 바뀌어도 코드를 많이 손대지 않게 하는 구조로 가야겠다고 생각하였습니다. 설계시 구글의 Now in Android, AAC를 많이 참고하였습니다.\n- Jetpack Compose를 이용하여 UI 구현\n- 구독을 위한 인앱결제 구현\n- 토큰 인증 및 갱신 로직 구현\n- 백엔드 개발자와 협업하여 웹뷰에 표시되는 커뮤니티 게시글 에디터 제어를 위한 자바스크립트 통신 구현\n- 외부 웹 스트리밍 구현 업체와 협업하여 웹뷰를 통한 VOD, LIVE 스트리밍 구현\n- api 폴링을 통한 실시간 주가 정보 구현\n- Canvas를 이용한 증권 지수 차트 구현  \n당시에 차트 라이브러리에서 제공하는 기능을 사용하려고 했으나, 디자인에 맞게 커스텀하는 것이 제한되어, Canvas로 구현하였습니다.\n- SciChart를 이용한 종목 양봉 차트 구현  \n분, 일, 주, 연에 대한 차트와 실시간으로 봉이 추가되는 부분, 십자선을 이용하여 사용자가 원하는 구간의 정보 확인을 구현하였습니다.\n\n<br/><br/>\n\n#### 주요 성과 및 문제해결\n- 다수의 api를 폴링할 시 토큰이 만료됐을 경우 여러번 갱신 요청하는 문제 수정  \n실시간 주가 정보를 위해 여러 api를 폴링 중 토큰이 만료되면 요청하던 모든 부분에 대해 토큰 갱신 요청을 하게되는 문제가 있었습니다. 이를 해결하기 위해 여러 api 중 제일 먼저 인증 문제가 발생하여 토큰 갱신을 하게되면 이외의 api들은 갱신이 완료될 때까지 대기한 후 진행이 되도록 수정하였습니다.\n- ModalNavigationDrawer를 커스텀으로 구현 중 발생한 이슈 해결  \nDrawer에 들어가는 content의 크기를 fillMaxWidth로 설정하면 가로로 회전시 Drawer가 펼쳐지는 이슈가 있었습니다. 이 문제는 해당 라이브러리의 이슈로 구글 이슈 트래커에 등록하였으나, 오랜 기간 동안 해결이 되지 않았습니다. 계속 기다릴 수는 없었고 이를 해결하기 위해 ModalNavigationDrawer의 소스코드를 복사해서 해당 문제가 발생하는 부분을 수정 후 사용했습니다. 해당 문제는 디바이스의 크기에 따라서 동작이 변하는 Drawer의 내부 코드가 문제였습니다.\n- 디바이스 화면에 따라서 텍스트가 디자인과 맞지 않는 문제 발생  \n디자이너와 협의하여 화면 크기에 따라서 텍스트 크기를 다르게 함으로써 해결했습니다.\n- Paging3 이용 중 데이터 최신화시 스크롤 위치가 변하는 문제 해결  \n해당 문제는 Paging3의 작동 방식상 발생하는 문제였습니다. 게시글의 수정, 삭제시 자연스럽게 업데이트 되게 하기위해 캐싱과 Flow의 combine을 이용하여 해결하였습니다.\n\n<br/><br/>",
     "repo": null,
     "repoUrl": null,
     "imageCount": 6
@@ -137,7 +137,7 @@
     ],
     "intro": "위치기반 SNS 입니다. 사용자가 게시글을 등록하면 지도에 핀의 형태로 표시됩니다.",
     "directory": "everyPin",
-    "showReadme": false,
+    "readme": null,
     "repo": "Github",
     "repoUrl": "https://github.com/EveryPin/EveryPin-Android",
     "imageCount": 0
@@ -159,7 +159,7 @@
     ],
     "intro": "포트폴리오 사이트 입니다.",
     "directory": "portfolio",
-    "showReadme": false,
+    "readme": null,
     "repo": "Github",
     "repoUrl": "https://github.com/tnfy10/HongSunghwi_Portfolio",
     "imageCount": 0

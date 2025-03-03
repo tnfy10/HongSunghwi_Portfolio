@@ -27,26 +27,11 @@ class ProjectsViewModel(
         scope = viewModelScope
     )
 
-    private val _projectReadmeMap = MutableStateFlow<Map<String, String>>(emptyMap())
-    val projectReadmeMap = _projectReadmeMap.asStateFlow()
-
     private val _projectImageMap = MutableStateFlow<Map<String, List<String>>>(emptyMap())
     val projectImageMap = _projectImageMap.asStateFlow()
 
     fun changeFilter(filter: ProjectFilter) {
         _filterState.value = filter
-    }
-
-    fun fetchProjectReadme(directory: String) {
-        viewModelScope.launch {
-            projectRepository.getProjectReadme(directory).catch {
-                println("Failed to fetch project readme: $it")
-            }.collectLatest { readme ->
-                val copyMap = _projectReadmeMap.value.toMutableMap()
-                copyMap[directory] = readme
-                _projectReadmeMap.value = copyMap
-            }
-        }
     }
 
     fun fetchProjectImage(directory: String, imageCount: Int) {

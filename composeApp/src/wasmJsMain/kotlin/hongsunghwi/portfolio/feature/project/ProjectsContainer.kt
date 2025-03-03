@@ -25,7 +25,6 @@ fun ProjectsContainer(
 ) {
     val projectState by projectsViewModel.projectState.collectAsState()
     val selectedFilter by projectsViewModel.filterState.collectAsState()
-    val projectReadmeMap by projectsViewModel.projectReadmeMap.collectAsState()
     val projectImageMap by projectsViewModel.projectImageMap.collectAsState()
 
     ProjectsContainerImpl(
@@ -35,8 +34,6 @@ fun ProjectsContainer(
         selectedFilter = selectedFilter,
         onChangeFilter = projectsViewModel::changeFilter,
         projectState = projectState,
-        projectReadmeMap = projectReadmeMap,
-        onFetchProjectReadme = projectsViewModel::fetchProjectReadme,
         projectImageMap = projectImageMap,
         onFetchProjectImage = projectsViewModel::fetchProjectImage
     )
@@ -50,8 +47,6 @@ private fun ProjectsContainerImpl(
     selectedFilter: ProjectFilter,
     onChangeFilter: (ProjectFilter) -> Unit,
     projectState: UiState<List<Project>>,
-    projectReadmeMap: Map<String, String>,
-    onFetchProjectReadme: (directory: String) -> Unit,
     projectImageMap: Map<String, List<String>>,
     onFetchProjectImage: (directory: String, imageCount: Int) -> Unit
 ) {
@@ -147,7 +142,7 @@ private fun ProjectsContainerImpl(
                                                 onDismiss = {
                                                     showDetailDialog = false
                                                 },
-                                                content = projectReadmeMap[item.directory]
+                                                content = item.readme
                                             )
                                         }
 
@@ -167,9 +162,6 @@ private fun ProjectsContainerImpl(
                                                 }
                                             },
                                             onClickReadme = {
-                                                if (projectReadmeMap[item.directory] == null) {
-                                                    onFetchProjectReadme(item.directory)
-                                                }
                                                 showDetailDialog = true
                                             },
                                             onClickImages = {
@@ -187,7 +179,7 @@ private fun ProjectsContainerImpl(
                                             endDate = item.endDate,
                                             intro = item.intro,
                                             skills = item.skills,
-                                            showReadme = item.showReadme,
+                                            showReadme = item.readme != null,
                                             repo = item.repo,
                                             showImageButton = item.imageCount > 0
                                         )

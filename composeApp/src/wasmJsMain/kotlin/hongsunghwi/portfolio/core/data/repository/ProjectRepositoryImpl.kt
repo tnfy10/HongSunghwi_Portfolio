@@ -17,12 +17,6 @@ class ProjectRepositoryImpl : ProjectRepository {
     }
 
     @OptIn(ExperimentalResourceApi::class)
-    override fun getProjectReadme(directory: String): Flow<String> = flow {
-        val readBytes = Res.readBytes("files/project/$directory/README.md")
-        emit(readBytes.decodeToString().trimIndent())
-    }
-
-    @OptIn(ExperimentalResourceApi::class)
     override fun getProjectImages(directory: String, imageCount: Int): Flow<List<String>> = flow {
         val uris = buildList {
             repeat(imageCount) {

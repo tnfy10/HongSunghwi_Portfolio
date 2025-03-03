@@ -13,7 +13,7 @@ data class Project(
     val skills: List<String>,
     val intro: String,
     val directory: String,
-    val showReadme: Boolean,
+    val readme: String?,
     val repo: String?,
     val repoUrl: String?,
     val imageCount: Int
