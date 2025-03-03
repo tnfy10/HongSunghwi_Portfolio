@@ -14,7 +14,7 @@ data class Project(
     val intro: String,
     val directory: String,
     val showReadme: Boolean,
-    val hasImage: Boolean,
-    val repo: String,
-    val repoUrl: String,
+    val repo: String?,
+    val repoUrl: String?,
+    val imageCount: Int
 )

@@ -16,9 +16,9 @@
     "intro": "환자의 병원 진료 예약과 대기인수 확인, 결제, 처방전 발급을 할 수 있는 어플리케이션 입니다.\n졸업작품전에서 최우수상을 수상하였습니다.",
     "directory": "hospi",
     "showReadme": false,
-    "hasImage": false,
     "repo": "Github",
-    "repoUrl": "https://github.com/tnfy10/hospi"
+    "repoUrl": "https://github.com/tnfy10/hospi",
+    "imageCount": 0
   },
   {
     "id": 2,
@@ -35,12 +35,37 @@
     "intro": "밤에만 운영하는 술집들이 낮에는 스터디룸으로 운영할 수 있게하고, 스터디룸 예약과 결제를 할 수 있는 어플리케이션 입니다.\n원티드에서 주최한 공모전으로 예선 진출 하였습니다.",
     "directory": "gongZone",
     "showReadme": false,
-    "hasImage": false,
     "repo": "Github",
-    "repoUrl": "https://github.com/tnfy10/GongZone"
+    "repoUrl": "https://github.com/tnfy10/GongZone",
+    "imageCount": 0
   },
   {
     "id": 3,
+    "filter": "COMPANY",
+    "name": "KIWI",
+    "startDate": "2021.12",
+    "endDate": "2023.02",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "GetX",
+      "Android",
+      "Kotlin",
+      "Coroutine",
+      "Flow",
+      "Firebase",
+      "Git",
+      "Github"
+    ],
+    "intro": "사용자의 투자성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.",
+    "directory": "kiwi",
+    "showReadme": true,
+    "repo": null,
+    "repoUrl": null,
+    "imageCount": 2
+  },
+  {
+    "id": 4,
     "filter": "TEAM",
     "name": "Bookand",
     "startDate": "2022.07",
@@ -58,12 +83,40 @@
     "intro": "수도권에 있는 독립서점의 정보와 맞춤형 큐레이션 피드를 통해, 독림서점을 소개하는 어플리케이션 입니다.",
     "directory": "bookand",
     "showReadme": false,
-    "hasImage": false,
     "repo": "Github",
-    "repoUrl": "https://github.com/bookand-team/Bookand.Application"
+    "repoUrl": "https://github.com/bookand-team/Bookand.Application",
+    "imageCount": 0
   },
   {
-    "id": 4,
+    "id": 5,
+    "filter": "COMPANY",
+    "name": "DayUp",
+    "startDate": "2023.03",
+    "endDate": "2024.12",
+    "skills": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "Hilt",
+      "Coroutine",
+      "Flow",
+      "Paging3",
+      "Navigation",
+      "DataStore",
+      "Retrofit",
+      "Google Play Billing",
+      "Git",
+      "Github"
+    ],
+    "intro": "실시간 주식 정보 제공 및 각 종목 담당 멘토들의 강의를 볼 수 있으며, 멘토 커뮤니티를 통해 소통을 할 수 있는 어플리케이션 입니다.",
+    "directory": "dayUp",
+    "showReadme": true,
+    "repo": null,
+    "repoUrl": null,
+    "imageCount": 6
+  },
+  {
+    "id": 6,
     "filter": "TEAM",
     "name": "EveryPin",
     "startDate": "2023.11",
@@ -85,12 +138,12 @@
     "intro": "위치기반 SNS 입니다. 사용자가 게시글을 등록하면 지도에 핀의 형태로 표시됩니다.",
     "directory": "everyPin",
     "showReadme": false,
-    "hasImage": false,
     "repo": "Github",
-    "repoUrl": "https://github.com/EveryPin/EveryPin-Android"
+    "repoUrl": "https://github.com/EveryPin/EveryPin-Android",
+    "imageCount": 0
   },
   {
-    "id": 5,
+    "id": 7,
     "filter": "PERSONAL",
     "name": "포트폴리오",
     "startDate": "2025.01",
@@ -102,14 +155,13 @@
       "Koin",
       "Coroutine",
       "Flow",
-      "Navigation",
       "Ktor"
     ],
     "intro": "포트폴리오 사이트 입니다.",
     "directory": "portfolio",
     "showReadme": false,
-    "hasImage": false,
     "repo": "Github",
-    "repoUrl": "https://github.com/tnfy10/HongSunghwi_Portfolio"
+    "repoUrl": "https://github.com/tnfy10/HongSunghwi_Portfolio",
+    "imageCount": 0
   }
 ]

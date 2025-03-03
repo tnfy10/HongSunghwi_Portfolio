@@ -18,7 +18,7 @@ import org.jetbrains.compose.resources.painterResource
 fun ProjectCard(
     onClickRepo: () -> Unit,
     onClickReadme: () -> Unit,
-    onClickImages: (() -> Unit)? = null,
+    onClickImages: () -> Unit,
     modifier: Modifier = Modifier,
     name: String,
     filterLabel: String,
@@ -27,7 +27,8 @@ fun ProjectCard(
     intro: String,
     skills: List<String>,
     showReadme: Boolean,
-    repo: String
+    repo: String?,
+    showImageButton: Boolean
 ) {
     Card(
         modifier = modifier
@@ -86,12 +87,14 @@ fun ProjectCard(
                 modifier = Modifier.padding(top = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
-                Button(
-                    onClick = onClickRepo
-                ) {
-                    Text(
-                        text = repo
-                    )
+                if (repo != null) {
+                    Button(
+                        onClick = onClickRepo
+                    ) {
+                        Text(
+                            text = repo
+                        )
+                    }
                 }
                 if (showReadme) {
                     Button(
@@ -107,9 +110,9 @@ fun ProjectCard(
                         )
                     }
                 }
-                onClickImages?.let {
+                if (showImageButton) {
                     Button(
-                        onClick = it::invoke
+                        onClick = onClickImages
                     ) {
                         Icon(
                             painter = painterResource(Res.drawable.ic_image_24),

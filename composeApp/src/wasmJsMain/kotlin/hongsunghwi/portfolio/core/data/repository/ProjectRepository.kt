@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface ProjectRepository {
     fun getProjects(): Flow<List<Project>>
     fun getProjectReadme(directory: String): Flow<String>
+    fun getProjectImages(directory: String, imageCount: Int): Flow<List<String>>
 }

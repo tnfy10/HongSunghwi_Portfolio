@@ -26,6 +26,7 @@ fun ProjectsContainer(
     val projectState by projectsViewModel.projectState.collectAsState()
     val selectedFilter by projectsViewModel.filterState.collectAsState()
     val projectReadmeMap by projectsViewModel.projectReadmeMap.collectAsState()
+    val projectImageMap by projectsViewModel.projectImageMap.collectAsState()
 
     ProjectsContainerImpl(
         modifier = modifier,
@@ -35,7 +36,9 @@ fun ProjectsContainer(
         onChangeFilter = projectsViewModel::changeFilter,
         projectState = projectState,
         projectReadmeMap = projectReadmeMap,
-        onFetchProjectReadme = projectsViewModel::fetchProjectReadme
+        onFetchProjectReadme = projectsViewModel::fetchProjectReadme,
+        projectImageMap = projectImageMap,
+        onFetchProjectImage = projectsViewModel::fetchProjectImage
     )
 }
 
@@ -48,7 +51,9 @@ private fun ProjectsContainerImpl(
     onChangeFilter: (ProjectFilter) -> Unit,
     projectState: UiState<List<Project>>,
     projectReadmeMap: Map<String, String>,
-    onFetchProjectReadme: (directory: String) -> Unit
+    onFetchProjectReadme: (directory: String) -> Unit,
+    projectImageMap: Map<String, List<String>>,
+    onFetchProjectImage: (directory: String, imageCount: Int) -> Unit
 ) {
     val uriHandler = LocalUriHandler.current
 
@@ -135,6 +140,7 @@ private fun ProjectsContainerImpl(
                                     } else {
                                         val item = row[col]
                                         var showDetailDialog by remember { mutableStateOf(false) }
+                                        var showImageDialog by remember { mutableStateOf(false) }
 
                                         if (showDetailDialog) {
                                             ProjectDetailDialog(
@@ -145,15 +151,32 @@ private fun ProjectsContainerImpl(
                                             )
                                         }
 
+                                        if (showImageDialog) {
+                                            ProjectImageDialog(
+                                                onDismiss = {
+                                                    showImageDialog = false
+                                                },
+                                                images = projectImageMap[item.directory] ?: emptyList()
+                                            )
+                                        }
+
                                         ProjectCard(
                                             onClickRepo = {
-                                                uriHandler.openUri(item.repoUrl)
+                                                item.repoUrl?.let {
+                                                    uriHandler.openUri(it)
+                                                }
                                             },
                                             onClickReadme = {
                                                 if (projectReadmeMap[item.directory] == null) {
                                                     onFetchProjectReadme(item.directory)
                                                 }
                                                 showDetailDialog = true
+                                            },
+                                            onClickImages = {
+                                                if (projectImageMap[item.directory] == null) {
+                                                    onFetchProjectImage(item.directory, item.imageCount)
+                                                }
+                                                showImageDialog = true
                                             },
                                             modifier = Modifier
                                                 .weight(1f)
@@ -165,7 +188,8 @@ private fun ProjectsContainerImpl(
                                             intro = item.intro,
                                             skills = item.skills,
                                             showReadme = item.showReadme,
-                                            repo = item.repo
+                                            repo = item.repo,
+                                            showImageButton = item.imageCount > 0
                                         )
                                     }
                                 }
