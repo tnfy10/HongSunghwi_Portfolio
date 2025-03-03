@@ -6,7 +6,6 @@ import hongsunghwi.portfolio.core.constant.ProjectFilter
 import hongsunghwi.portfolio.core.data.repository.ProjectRepository
 import hongsunghwi.portfolio.core.ui.state.UiState
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 class ProjectsViewModel(
     private val projectRepository: ProjectRepository
@@ -27,22 +26,7 @@ class ProjectsViewModel(
         scope = viewModelScope
     )
 
-    private val _projectImageMap = MutableStateFlow<Map<String, List<String>>>(emptyMap())
-    val projectImageMap = _projectImageMap.asStateFlow()
-
     fun changeFilter(filter: ProjectFilter) {
         _filterState.value = filter
-    }
-
-    fun fetchProjectImage(directory: String, imageCount: Int) {
-        viewModelScope.launch {
-            projectRepository.getProjectImages(directory, imageCount).catch {
-                println("Failed to fetch project image: $it")
-            }.collectLatest { imageUris ->
-                val copyMap = _projectImageMap.value.toMutableMap()
-                copyMap[directory] = imageUris
-                _projectImageMap.value = copyMap
-            }
-        }
     }
 }

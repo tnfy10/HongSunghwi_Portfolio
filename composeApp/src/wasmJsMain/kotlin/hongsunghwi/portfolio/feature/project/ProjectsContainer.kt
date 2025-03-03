@@ -25,7 +25,6 @@ fun ProjectsContainer(
 ) {
     val projectState by projectsViewModel.projectState.collectAsState()
     val selectedFilter by projectsViewModel.filterState.collectAsState()
-    val projectImageMap by projectsViewModel.projectImageMap.collectAsState()
 
     ProjectsContainerImpl(
         modifier = modifier,
@@ -33,9 +32,7 @@ fun ProjectsContainer(
         columns = columns,
         selectedFilter = selectedFilter,
         onChangeFilter = projectsViewModel::changeFilter,
-        projectState = projectState,
-        projectImageMap = projectImageMap,
-        onFetchProjectImage = projectsViewModel::fetchProjectImage
+        projectState = projectState
     )
 }
 
@@ -46,9 +43,7 @@ private fun ProjectsContainerImpl(
     columns: Int,
     selectedFilter: ProjectFilter,
     onChangeFilter: (ProjectFilter) -> Unit,
-    projectState: UiState<List<Project>>,
-    projectImageMap: Map<String, List<String>>,
-    onFetchProjectImage: (directory: String, imageCount: Int) -> Unit
+    projectState: UiState<List<Project>>
 ) {
     val uriHandler = LocalUriHandler.current
 
@@ -151,7 +146,7 @@ private fun ProjectsContainerImpl(
                                                 onDismiss = {
                                                     showImageDialog = false
                                                 },
-                                                images = projectImageMap[item.directory] ?: emptyList()
+                                                images = item.images ?: emptyList()
                                             )
                                         }
 
@@ -165,9 +160,6 @@ private fun ProjectsContainerImpl(
                                                 showDetailDialog = true
                                             },
                                             onClickImages = {
-                                                if (projectImageMap[item.directory] == null) {
-                                                    onFetchProjectImage(item.directory, item.imageCount)
-                                                }
                                                 showImageDialog = true
                                             },
                                             modifier = Modifier
@@ -181,7 +173,7 @@ private fun ProjectsContainerImpl(
                                             skills = item.skills,
                                             showReadme = item.readme != null,
                                             repo = item.repo,
-                                            showImageButton = item.imageCount > 0
+                                            showImageButton = item.images != null
                                         )
                                     }
                                 }

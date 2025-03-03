@@ -1,17 +1,22 @@
 package hongsunghwi.portfolio.feature.project
 
+import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import coil3.compose.AsyncImage
+import coil3.compose.AsyncImagePainter
+import coil3.compose.rememberAsyncImagePainter
 import hongsunghwi.portfolio.core.constant.Size
 import hongsunghwi_portfolio.composeapp.generated.resources.Res
 import hongsunghwi_portfolio.composeapp.generated.resources.ic_close_24
@@ -60,15 +65,49 @@ fun ProjectImageDialog(
                     state = pagerState,
                     modifier = Modifier.weight(1f)
                 ) { page ->
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        AsyncImage(
-                            model = images[page],
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit
-                        )
+                    val painter = rememberAsyncImagePainter(images[page])
+                    val painterState by painter.state.collectAsState()
+
+                    Crossfade(
+                        targetState = painterState,
+                        modifier = Modifier.fillMaxSize()
+                    ) { state ->
+                        when (state) {
+                            is AsyncImagePainter.State.Error -> {
+                                println("Error: ${state.result}")
+
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = "이미지를 불러올 수 없습니다."
+                                    )
+                                }
+                            }
+
+                            is AsyncImagePainter.State.Success -> {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Image(
+                                        painter = painter,
+                                        contentDescription = null,
+                                        contentScale = ContentScale.Fit
+                                    )
+                                }
+                            }
+
+                            else -> {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    CircularProgressIndicator()
+                                }
+                            }
+                        }
                     }
                 }
                 Row(
