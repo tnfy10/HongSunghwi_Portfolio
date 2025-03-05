@@ -56,7 +56,7 @@
       "Github"
     ],
     "intro": "사용자의 투자성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.",
-    "readme": "## KIWI\n2021.12 - 2023.02  \n7명 (안드로이드 2명, 백엔드 3명, 기획 1명, 디자이너 1명)\n<br/><br/>\n\n---\n\n<br/><br/>\n\n#### 개요\n사용자의 투자 성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.  \n이외에도 코스피, 코스닥 지수 정보와 선물 차트 정보를 제공합니다.\n\n<br/><br/>\n\n#### 주요 기능\n- 사용자의 투자 성향에 따른 주식 자동 매매\n- 코스피, 코스닥 지수 정보 제공\n- 선물 차트\n\n<br/><br/>\n\n#### 사용 기술 및 언어\nAndroid, Kotlin, Coroutine, Flow, Hilt, Room, Flutter, Dart, Pigeon, GetX\n\n<br/><br/>\n\n#### 주요 업무\n- Hilt 도입 및 싱글톤 제거 작업\n- 주식 선물 차트 개발 (fl_chart)\n- 회원가입 개발 (휴대폰 번호 인증, 모두싸인 전자계약, 계좌 인증)\n- 관리종목 백업 및 복구 개발\n- 로그 전송 구현\n\n<br/><br/>",
+    "readme": "## KIWI\n2021.12 - 2023.02  \n7명 (안드로이드 2명, 백엔드 3명, 기획 1명, 디자이너 1명)\n<br/><br/>\n\n---\n\n<br/><br/>\n\n#### 개요\n사용자의 투자 성향에 따라서 주식을 자동으로 매매해주는 어플리케이션 입니다.  \n이외에도 코스피, 코스닥 지수 정보와 선물 차트 정보를 제공합니다.\n\n<br/><br/>\n\n#### 주요 기능\n- 사용자의 투자 성향에 따른 주식 자동 매매\n- 코스피, 코스닥 지수 정보 제공\n- 선물 차트\n\n<br/><br/>\n\n#### 사용 기술 및 언어\nAndroid, Kotlin, Coroutine, Flow, Hilt, Room, Flutter, Dart, Pigeon, GetX\n\n<br/><br/>\n\n#### 주요 업무\n- Hilt 도입 및 싱글톤 제거 작업\n- 주식 선물 차트 개발 (fl_chart)\n- 회원가입 개발 (휴대폰 번호 인증, 모두싸인 전자계약, 계좌 인증)\n- 관리종목 백업 및 복구 개발\n- 로그 전송 구현\n\n<br/><br/>\n\n#### 주요 성과 및 문제해결\n- Hilt 도입을 통해 기존에 싱글톤으로 얽혀있던 유지보수가 어려운 코드들을 분리하여 유지보수가 편한 코드로 리팩토링 하였습니다.\n\n<br/><br/>",
     "images": [
       "https://firebasestorage.googleapis.com/v0/b/sunghwi-portfolio.firebasestorage.app/o/images%2Fkiwi%2F1.jpg?alt=media&token=751342a9-3f93-4378-bd08-36fa4681ce00",
       "https://firebasestorage.googleapis.com/v0/b/sunghwi-portfolio.firebasestorage.app/o/images%2Fkiwi%2F2.jpg?alt=media&token=26607f03-5233-44ec-a596-98e55a4312cf"
