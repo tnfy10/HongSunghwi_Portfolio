@@ -79,15 +79,6 @@ fun ProjectCard(
                 modifier = Modifier.padding(top = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
-                if (repo != null) {
-                    Button(
-                        onClick = onClickRepo
-                    ) {
-                        Text(
-                            text = repo
-                        )
-                    }
-                }
                 if (showReadme) {
                     Button(
                         onClick = onClickReadme
@@ -113,6 +104,15 @@ fun ProjectCard(
                         Spacer(Modifier.widthIn(4.dp))
                         Text(
                             text = "이미지"
+                        )
+                    }
+                }
+                if (repo != null) {
+                    Button(
+                        onClick = onClickRepo
+                    ) {
+                        Text(
+                            text = repo
                         )
                     }
                 }
