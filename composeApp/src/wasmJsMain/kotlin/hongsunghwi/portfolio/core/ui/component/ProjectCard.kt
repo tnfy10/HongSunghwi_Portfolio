@@ -66,22 +66,14 @@ fun ProjectCard(
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(Modifier.height(20.dp))
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    skills.forEach {
-                        AssistChip(
-                            onClick = {},
-                            label = {
-                                Text(
-                                    text = it,
-                                    style = MaterialTheme.typography.labelMedium
-                                )
-                            }
-                        )
-                    }
-                }
+                Text(
+                    text = "개발환경 및 사용기술",
+                    style = MaterialTheme.typography.titleSmall
+                )
+                Text(
+                    text = skills.joinToString(", "),
+                    style = MaterialTheme.typography.bodyMedium
+                )
             }
             Row(
                 modifier = Modifier.padding(top = 20.dp),
