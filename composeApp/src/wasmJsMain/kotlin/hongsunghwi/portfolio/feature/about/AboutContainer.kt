@@ -60,7 +60,9 @@ fun AboutContainer(
             Spacer(modifier = Modifier.height(32.dp))
             Text(
                 text = buildAnnotatedString {
-                    append("Android SDK, Jetpack을 이용한 안드로이드 앱 개발과 Flutter를 이용한 크로스 플랫폼 앱 개발 경험이 있습니다.")
+                    append("Android SDK, Jetpack을 이용한 안드로이드 앱 개발과 Flutter를 이용한 크로스 플랫폼 앱 개발, 구글 플레이 배포 및 구글 인앱결제 구현 경험이 있습니다.")
+                    append("\n")
+                    append("새로운 기술을 배워 적용하는 것을 좋아하며, 새로운 기술이나 찾아본 기술이 좋다고 생각하면 동료와 공유하여 검토하고 적용하고 있습니다.")
                     append("\n")
                     append("사용자 친화적인 앱 개발을 지향합니다.")
                 },

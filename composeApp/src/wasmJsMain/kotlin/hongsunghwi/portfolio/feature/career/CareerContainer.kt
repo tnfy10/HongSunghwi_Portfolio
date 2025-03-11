@@ -64,7 +64,7 @@ fun CareerContainer(
                             companyIntro = career.intro
                         ) {
                             Column(
-                                verticalArrangement = Arrangement.spacedBy(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(20.dp),
                             ) {
                                 career.contents.forEach { content ->
                                     Column {
@@ -76,25 +76,7 @@ fun CareerContainer(
                                             text = "${content.startDate} - ${content.endDate ?: "진행 중"}",
                                             style = MaterialTheme.typography.titleSmall
                                         )
-                                        Spacer(Modifier.height(8.dp))
-                                        Text(
-                                            text = "팀 구성",
-                                            style = MaterialTheme.typography.titleSmall
-                                        )
-                                        Text(
-                                            text = content.team,
-                                            style = MaterialTheme.typography.bodyMedium
-                                        )
-                                        Spacer(Modifier.height(8.dp))
-                                        Text(
-                                            text = "사용 기술",
-                                            style = MaterialTheme.typography.titleSmall
-                                        )
-                                        Text(
-                                            text = content.tech.joinToString(", "),
-                                            style = MaterialTheme.typography.bodyMedium
-                                        )
-                                        Spacer(Modifier.height(8.dp))
+                                        Spacer(Modifier.height(4.dp))
                                         Text(
                                             text = "주요 업무",
                                             style = MaterialTheme.typography.titleSmall
@@ -103,17 +85,6 @@ fun CareerContainer(
                                             text = content.work,
                                             style = MaterialTheme.typography.bodyMedium
                                         )
-                                        content.performance?.let {
-                                            Spacer(Modifier.height(8.dp))
-                                            Text(
-                                                text = "주요 성과 및 문제해결",
-                                                style = MaterialTheme.typography.titleSmall
-                                            )
-                                            Text(
-                                                text = it,
-                                                style = MaterialTheme.typography.bodyMedium
-                                            )
-                                        }
                                     }
                                 }
                             }

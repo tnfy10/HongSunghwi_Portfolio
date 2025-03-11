@@ -17,9 +17,6 @@ data class Career(
         val name: String,
         val startDate: String,
         val endDate: String?,
-        val team: String,
-        val tech: List<String>,
-        val work: String,
-        val performance: String?
+        val work: String
     )
 }
